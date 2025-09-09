@@ -123,5 +123,7 @@ do_configure:append() {
         \
         -e "s|^([[:space:]]*#define LV_USE_PRIVATE_API[[:space:]]).*|\1${LVGL_CONFIG_LV_USE_PRIVATE_API}|" \
         \
+        -e "s|^([[:space:]]*#define LV_USE_SNAPSHOT[[:space:]]).*|\1${LVGL_CONFIG_LV_USE_SNAPSHOT}|" \
+        \
         -i "${S}/lv_conf.h"
 }
