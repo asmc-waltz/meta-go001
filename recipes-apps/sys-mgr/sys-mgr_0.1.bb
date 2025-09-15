@@ -4,7 +4,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384361b4de20420"
 
 inherit cmake pkgconfig
-DEPENDS = "dbus networkmanager glib-2.0"
+DEPENDS = "dbus networkmanager glib-2.0 alsa-lib"
 
 python do_display_banner() {
     bb.plain("********************************************");
