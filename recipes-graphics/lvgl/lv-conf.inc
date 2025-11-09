@@ -51,7 +51,7 @@ EXTRA_OECMAKE += "-Dinstall:BOOL=ON -DLIB_INSTALL_DIR=${baselib}"
 
 do_configure:append() {
     # If there is a configuration template, start from that
-    [ -r "${S}/lv_conf_template.h" ] && cp -Lv "${S}/lv_conf_template.h" "${S}/lv_conf.h"
+    [ -r "${S}/lv_conf_template.h" ] && cp -Lv "${S}/lv_conf_template.h" "${S}/lv_conf_test.h"
 
     sed -r -e "s|#if 0 .*Set it to \"1\" to enable content.*|#if 1 // Enabled by ${PN}|" \
         \
@@ -125,5 +125,5 @@ do_configure:append() {
         \
         -e "s|^([[:space:]]*#define LV_USE_SNAPSHOT[[:space:]]).*|\1${LVGL_CONFIG_LV_USE_SNAPSHOT}|" \
         \
-        -i "${S}/lv_conf.h"
+        -i "${S}/lv_conf_test.h"
 }

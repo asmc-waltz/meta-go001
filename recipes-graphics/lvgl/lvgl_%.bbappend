@@ -2,45 +2,21 @@ SUMMARY = "meta-go001: lvgl mod"
 DESCRIPTION = "meta-go001 This Bitbake file is used for a custom lvgl configuration"
 
 FILESEXTRAPATHS:append := "${THISDIR}/files:"
+SRC_URI += "file://lv_conf.h"
+
+
+# Disable Kconfig
+EXTRA_OECMAKE += "-DLV_BUILD_CONF_PATH=${WORKDIR}/lv_conf.h"
+EXTRA_OECMAKE += "-DLV_BUILD_USE_KCONFIG=OFF"
+EXTRA_OECMAKE += "-DLV_BUILD_SET_CONFIG_OPTS=OFF"
+EXTRA_OECMAKE += "-DLV_BUILD_LVGL_H_SIMPLE_INCLUDE=ON"
+
+inherit cmake
 
 python do_display_banner() {
-    bb.plain("******************************************");
-    bb.plain("* meta-go001: --- lvgl configuration --- *");
-    bb.plain("******************************************");
+    bb.plain("******************************************")
+    bb.plain("* meta-go001: --- lvgl configuration --- *")
+    bb.plain("******************************************")
 }
-
-PACKAGECONFIG:append:pn-lvgl= " drm"
-LVGL_CONFIG_LV_USE_LOG = "1"
-LVGL_CONFIG_LV_LOG_LEVEL = "LV_LOG_LEVEL_WARN"
-LVGL_CONFIG_LV_LOG_PRINTF = "1"
-LVGL_CONFIG_LV_MEM_SIZE = "(51200 * 1024U)"
-LVGL_CONFIG_LV_FONT_MONTSERRAT_8 = "1"
-LVGL_CONFIG_LV_FONT_MONTSERRAT_10 = "1"
-LVGL_CONFIG_LV_FONT_MONTSERRAT_12 = "1"
-LVGL_CONFIG_LV_FONT_MONTSERRAT_14 = "1"
-LVGL_CONFIG_LV_FONT_MONTSERRAT_16 = "1"
-LVGL_CONFIG_LV_FONT_MONTSERRAT_18 = "1"
-LVGL_CONFIG_LV_FONT_MONTSERRAT_20 = "1"
-LVGL_CONFIG_LV_FONT_MONTSERRAT_22 = "1"
-LVGL_CONFIG_LV_FONT_MONTSERRAT_24 = "1"
-LVGL_CONFIG_LV_FONT_MONTSERRAT_26 = "1"
-LVGL_CONFIG_LV_FONT_MONTSERRAT_28 = "1"
-LVGL_CONFIG_LV_FONT_MONTSERRAT_30 = "1"
-LVGL_CONFIG_LV_FONT_MONTSERRAT_32 = "1"
-LVGL_CONFIG_LV_FONT_MONTSERRAT_34 = "1"
-LVGL_CONFIG_LV_FONT_MONTSERRAT_36 = "1"
-LVGL_CONFIG_LV_FONT_MONTSERRAT_38 = "1"
-LVGL_CONFIG_LV_FONT_MONTSERRAT_40 = "1"
-LVGL_CONFIG_LV_FONT_MONTSERRAT_42 = "1"
-LVGL_CONFIG_LV_FONT_MONTSERRAT_44 = "1"
-LVGL_CONFIG_LV_FONT_MONTSERRAT_46 = "1"
-LVGL_CONFIG_LV_FONT_MONTSERRAT_48 = "1"
-
-LVGL_CONFIG_LV_DEF_REFR_PERIOD = "15"
-LVGL_CONFIG_LV_USE_SYSMON = "1"
-LVGL_CONFIG_LV_USE_PERF_MONITOR = "1"
-
-LVGL_CONFIG_LV_USE_PRIVATE_API = "1"
-LVGL_CONFIG_LV_USE_SNAPSHOT = "1"
 
 addtask display_banner before do_build
