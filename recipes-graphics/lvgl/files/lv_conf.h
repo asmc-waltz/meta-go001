@@ -378,7 +378,7 @@
 #endif
 
 /** Draw using cached OpenGLES textures. Requires LV_USE_OPENGLES */
-#define LV_USE_DRAW_OPENGLES 0
+#define LV_USE_DRAW_OPENGLES 1
 #if LV_USE_DRAW_OPENGLES
     #define LV_DRAW_OPENGLES_TEXTURE_CACHE_COUNT 64
 #endif
@@ -1301,9 +1301,9 @@
      * shared across sub-systems and libraries using the Linux DMA-BUF API.
      * The GBM library aims to provide a platform independent memory management system
      * it supports the major GPU vendors - This option requires linking with libgbm */
-    #define LV_USE_LINUX_DRM_GBM_BUFFERS 0
+    #define LV_USE_LINUX_DRM_GBM_BUFFERS 1
 
-    #define LV_LINUX_DRM_USE_EGL     0
+    #define LV_LINUX_DRM_USE_EGL     1
 #endif
 
 /** Interface for TFT_eSPI */
@@ -1372,7 +1372,7 @@
 #endif
 
 /** Use a generic OpenGL driver that can be used to embed in other applications or used with GLFW/EGL */
-#define LV_USE_OPENGLES   0
+#define LV_USE_OPENGLES   1
 #if LV_USE_OPENGLES
     #define LV_USE_OPENGLES_DEBUG        1    /**< Enable or disable debug for opengles */
 #endif

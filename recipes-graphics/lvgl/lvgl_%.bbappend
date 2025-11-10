@@ -4,6 +4,8 @@ DESCRIPTION = "Custom LVGL build configuration for Cronos project (no Kconfig, s
 
 FILESEXTRAPATHS:append := "${THISDIR}/files:"
 
+DEPENDS += " mesa"
+
 SRC_URI += " \
     file://lv_conf.h \
 "

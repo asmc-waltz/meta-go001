@@ -17,7 +17,6 @@ IMAGE_INSTALL += " \
 
 #------------------------------ Library -----------------------------------------
 IMAGE_INSTALL += " alsa-lib"
-IMAGE_INSTALL += " libdrm"
 IMAGE_INSTALL += " libgpiod"
 
 #------------------------------ Network ----------------------------------------
@@ -80,6 +79,9 @@ IMAGE_INSTALL += " evtest"
 
 #------------------------------ GUI package -------------------------------------
 IMAGE_INSTALL += " lvgl"
+IMAGE_INSTALL += " libdrm"
+IMAGE_INSTALL += " mesa libgbm libegl-mesa libgles2-mesa libglapi"
+PACKAGECONFIG:append:pn-mesa = " egl gles gbm"
 
 #------------------------------ User Application --------------------------------
 IMAGE_INSTALL += " terminal-ui"
